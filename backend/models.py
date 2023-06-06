@@ -18,7 +18,6 @@ class Company(Base):
     phone_number = Column(String(20), unique=True, nullable=False)
     address = Column(String(50), unique=False, nullable=False)
     country = Column(String(50), unique=False, nullable=False)
-    last_contact = Column(Date, nullable=False, default=now())
     business_field = Column(String(50), unique=False, nullable=False)
 
     employees = relationship("Employee", back_populates="company")
@@ -36,7 +35,6 @@ class Employee(Base):
     phone_number = Column(String(20), unique=True, nullable=False)
     address = Column(String(50), unique=False, nullable=False)
     position = Column(String(50), unique=False, nullable=False)
-    last_contact = Column(Date, nullable=False, default=now())
     company_id = Column(Integer, ForeignKey('company.id'), nullable=False)
 
     company = relationship("Company", back_populates="employees")

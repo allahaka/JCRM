@@ -1,0 +1,43 @@
+<app-note-sidebar #newNote (updateTable)="paginationPageSize"></app-note-sidebar>
+
+<div class="list-container">
+    <div class="tasks-header row justify-content-between mx-3">
+        <div class="col page-title">
+            Notes
+        </div>
+        <div class="col-auto btn-top">
+            <button class="btn-task-list" mat-raised-button color="primary" (click)="newNote.openNewNoteForm()">
+                <i class="fa fa-plus"></i> &nbsp;&nbsp; Add Note
+            </button>
+        </div>
+    </div>
+
+    <div style="width: 100%; height: 90%;">
+        <hr id="top-line-divider">
+        <!-- AG Grid Angular Component -->
+        <ag-grid-angular style="width: 100%; height: 100%" class="ag-theme-alpine"
+                         [columnDefs]="columnDefs"
+                         [defaultColDef]="defaultColDef"
+                         [suppressExcelExport]="true"
+                         [popupParent]="popupParent"
+                         [paginationPageSize]="paginationPageSize"
+                         [pagination]="true"
+                         [suppressPaginationPanel]="true"
+                         [suppressScrollOnNewData]="true"
+                         [rowData]="rowData$ | async"
+                         suppressRowClickSelection
+                         [rowSelection]="'multiple'"
+                         [animateRows]="true"
+                         (gridReady)="onGridReady($event)"
+                         (cellValueChanged)="onCellValueChanged($event)">
+        </ag-grid-angular>
+      <div>
+          <button (click)="deleteSelectedRows()" [disabled]="!rowsSelected()">
+                  Delete Selected Row
+          </button>
+      </div>
+        <mat-paginator [length]="totalRows" [pageSize]="paginationPageSize" [showFirstLastButtons]=true
+            [pageSizeOptions]="[5, 25, 100]" aria-label="Select page" (page)="onPaginatorClicked($event)">
+        </mat-paginator>
+    </div>
+</div>

@@ -26,7 +26,7 @@ def create_employee(employee: schemas.EmployeeCreate, db: Session = Depends(get_
         raise HTTPException(HTTPStatus.CONFLICT, "Employee already exists") from exc
 
 
-@router.patch('/{employee_id:int}', response_model=schemas.Employee)
+@router.patch('/{employee_id:int}', response_model=schemas.EmployeeUpdate)
 def update_employee(employee_id: int, employee: schemas.EmployeeUpdate, db: Session = Depends(get_db)) -> Any:
     try:
         return crud_employee.update(db, employee_id, employee)

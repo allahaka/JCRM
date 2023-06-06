@@ -40,3 +40,11 @@ def delete_note(note_id: int, db: Session = Depends(get_db)) -> Any:
         return crud_note.delete(db, note_id)
     except Exception as exc:
         raise HTTPException(HTTPStatus.NOT_FOUND, "No Note with such ID") from exc
+
+
+@router.get('/deal/{deal_id:int}', response_model=Page[schemas.Note])
+def get_note_list_by_deal_id(deal_id: int, request: Request, db: Session = Depends(get_db)) -> Any:
+    try:
+        return paginate(crud_note.get_all_by_deal_id(db, deal_id))
+    except Exception as exc:
+        raise HTTPException(HTTPStatus.NOT_FOUND, "No Note with such Deal ID") from exc

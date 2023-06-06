@@ -1,0 +1,74 @@
+<mat-drawer mode="side" opened={{isExpanded}} disableClose="true" position="end" class="mat-elevation-z8 drawer">
+    <form [formGroup]="newEmployeeForm" (ngSubmit)="addEmployee(formDirective)" class="form" #formDirective="ngForm">
+        <h3>Add new Employee</h3>
+
+        <span class="form-field">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Employee name</mat-label>
+                <input matInput formControlName="name">
+                <mat-error *ngIf="f.name.errors && f.name.errors.required">This field is required</mat-error>
+            </mat-form-field>
+        </span>
+
+        <span class="form-field">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Employee wid</mat-label>
+                <input matInput formControlName="wid">
+                <mat-error *ngIf="f.wid.errors && f.wid.errors.required">This field is required</mat-error>
+            </mat-form-field>
+        </span>
+
+        <span class="form-field">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Employee email</mat-label>
+                <input matInput formControlName="email">
+                <mat-error *ngIf="f.email.errors && f.email.errors.required">This field is required</mat-error>
+            </mat-form-field>
+        </span>
+
+      <span class="form-field">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Employee phone number</mat-label>
+                <input matInput formControlName="phone_number">
+                <mat-error *ngIf="f.phone_number.errors && f.phone_number.errors.required">This field is required</mat-error>
+            </mat-form-field>
+      </span>
+
+      <span class="form-field">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Employee address</mat-label>
+                <input matInput formControlName="address">
+                <mat-error *ngIf="f.address.errors && f.address.errors.required">This field is required</mat-error>
+            </mat-form-field>
+       </span>
+
+        <span class="form-field">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Employee position</mat-label>
+                <input matInput formControlName="position">
+                <mat-error *ngIf="f.position.errors && f.position.errors.required">This field is required</mat-error>
+            </mat-form-field>
+       </span>
+
+        <span>
+            <mat-label>Company *</mat-label>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-select formControlName="company_id">
+                    <mat-option *ngFor="let company of companies" [value]="company.id">
+                        {{company.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </span>
+
+        <span class="form-field form-field-padding-bottom">
+            <span class="form-row full-width">
+                <button mat-raised-button type="submit" color="primary" id="btn-add" class="full-width">Add new Employee</button>
+                <button mat-stroked-button type="button" (click)=closeNewProjectForm(formDirective) id="btn-cancel" class="full-width">
+                    Cancel
+                </button>
+            </span>
+        </span>
+
+    </form>
+</mat-drawer>

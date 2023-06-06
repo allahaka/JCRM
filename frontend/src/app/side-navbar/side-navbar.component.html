@@ -1,0 +1,80 @@
+<mat-sidenav-container autosize class="full-height">
+  <mat-sidenav mode="side" opened="true">
+    <mat-nav-list>
+      <mat-list-item class="logo-container" (click)="toggleSidebar(isExpanded)">
+        <div class="logo">
+          <svg width="35" height="41" viewBox="4 0 33 41" fill="none"
+               xmlns="http://www.w3.org/2000/svg">
+            <rect x="8.37596" width="33" height="33" rx="15" transform="rotate(14.7035 8.37596 0)"
+                  fill="url(#paint0_linear_1_479)"/>
+            <line x1="15.1183" y1="20.612" x2="18.0261" y2="23.8445" stroke="white" stroke-width="3"
+                  stroke-linecap="round"/>
+            <line x1="26.9662" y1="16.1157" x2="18.1157" y2="23.7617" stroke="white" stroke-width="3"
+                  stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="paint0_linear_1_479" x1="24.876" y1="0" x2="24.876" y2="33"
+                              gradientUnits="userSpaceOnUse">
+                <stop stop-color="#03ACFF"/>
+                <stop offset="1" stop-color="#079BE6" stop-opacity="0.4"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </mat-list-item>
+
+      <div id="nav-bar-spacer"></div>
+
+      <app-navbar-element
+        [label]="'Home'"
+        [icon]="'home'"
+        [route]="'/company'"
+        [isExpanded]="isExpanded"
+      ></app-navbar-element>
+
+      <mat-divider></mat-divider>
+      <div mat-subheader>Data</div>
+
+      <app-navbar-element
+        [label]="'Company'"
+        [icon]="'people'"
+        [route]="'/company'"
+        [isExpanded]="isExpanded"
+      ></app-navbar-element>
+
+      <app-navbar-element
+        [label]="'Employee'"
+        [icon]="'people'"
+        [route]="'/employee'"
+        [isExpanded]="isExpanded"
+      ></app-navbar-element>
+
+      <app-navbar-element
+        [label]="'Deal'"
+        [icon]="'format_align_justify'"
+        [route]="'/deal'"
+        [isExpanded]="isExpanded"
+      ></app-navbar-element>
+
+      <app-navbar-element
+        [label]="'Meeting'"
+        [icon]="'format_align_justify'"
+        [route]="'/meeting'"
+        [isExpanded]="isExpanded"
+      ></app-navbar-element>
+
+      <a (click)="toggleSidebar(isExpanded)">
+        <mat-list-item id="hide-button">
+          <mat-icon *ngIf="isExpanded" mat-list-icon>arrow_back</mat-icon>
+          <mat-icon *ngIf="!isExpanded" mat-list-icon>arrow_forward</mat-icon>
+          <h4 *ngIf="isExpanded" mat-line>Hide</h4>
+        </mat-list-item>
+      </a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+      <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

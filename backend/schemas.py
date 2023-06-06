@@ -12,18 +12,20 @@ class ORMBaseModel(BaseModel):
 
 class Company(ORMBaseModel):
     id: int
+    email: str
     name: str
     phone_number: str
+    address: str
     country: str
-    last_contact: date
     business_field: str
 
 
 class CompanyUpdate(ORMBaseModel):
+    email: Optional[str]
     name: Optional[str]
     phone_number: Optional[str]
+    address: Optional[str]
     country: Optional[str]
-    last_contact: Optional[date]
     business_field: Optional[str]
 
 
@@ -33,7 +35,6 @@ class CompanyCreate(ORMBaseModel):
     phone_number: str
     address: str
     country: str
-    last_contact: Optional[date]
     business_field: str
 
 
@@ -45,8 +46,8 @@ class Employee(ORMBaseModel):
     phone_number: str
     address: str
     position: str
-    last_contact: date
     company_id: int
+    company_name: Optional[str]
 
 
 class EmployeeUpdate(ORMBaseModel):
@@ -56,8 +57,8 @@ class EmployeeUpdate(ORMBaseModel):
     phone_number: Optional[str]
     address: Optional[str]
     position: Optional[str]
-    last_contact: Optional[date]
     company_id: Optional[int]
+    company_name: Optional[str]
 
 
 class EmployeeCreate(ORMBaseModel):
@@ -67,7 +68,6 @@ class EmployeeCreate(ORMBaseModel):
     phone_number: str
     address: str
     position: str
-    last_contact: Optional[date]
     company_id: int
 
 
@@ -79,7 +79,9 @@ class Deal(ORMBaseModel):
     currency: str
     status: str
     company_id: int
+    company_name: str
     contact_point_id: int
+    contact_point_name: str
 
 
 class DealUpdate(ORMBaseModel):

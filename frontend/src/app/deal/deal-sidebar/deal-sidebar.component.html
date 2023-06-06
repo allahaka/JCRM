@@ -1,0 +1,77 @@
+<mat-drawer mode="side" opened={{isExpanded}} disableClose="true" position="end" class="mat-elevation-z8 drawer">
+    <form [formGroup]="newDealForm" (ngSubmit)="addDeal(formDirective)" class="form" #formDirective="ngForm">
+        <h3>Add new Deal</h3>
+
+        <span class="form-field">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Deal name</mat-label>
+                <input matInput formControlName="name">
+                <mat-error *ngIf="f.name.errors && f.name.errors.required">This field is required</mat-error>
+            </mat-form-field>
+        </span>
+
+        <span class="form-field">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Deal description</mat-label>
+                <input matInput formControlName="description">
+                <mat-error *ngIf="f.name.errors && f.name.errors.required">This field is required</mat-error>
+            </mat-form-field>
+        </span>
+
+        <span class="form-field">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Deal budget</mat-label>
+                <input matInput formControlName="budget">
+                <mat-error *ngIf="f.name.errors && f.name.errors.required">This field is required</mat-error>
+            </mat-form-field>
+        </span>
+
+      <span class="form-field">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Deal currency</mat-label>
+                <input matInput formControlName="currency">
+                <mat-error *ngIf="f.name.errors && f.name.errors.required">This field is required</mat-error>
+            </mat-form-field>
+      </span>
+
+      <span class="form-field">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Deal status</mat-label>
+                <input matInput formControlName="status">
+                <mat-error *ngIf="f.name.errors && f.name.errors.required">This field is required</mat-error>
+            </mat-form-field>
+       </span>
+
+        <span>
+            <mat-label>Company *</mat-label>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-select formControlName="company_id">
+                    <mat-option *ngFor="let company of companies" [value]="company.id">
+                        {{company.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </span>
+
+        <span>
+            <mat-label>Employee *</mat-label>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-select formControlName="contact_point_id">
+                    <mat-option *ngFor="let employee of employees" [value]="employee.id">
+                        {{employee.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </span>
+
+        <span class="form-field form-field-padding-bottom">
+            <span class="form-row full-width">
+                <button mat-raised-button type="submit" color="primary" id="btn-add" class="full-width">Add new Deal</button>
+                <button mat-stroked-button type="button" (click)=closeNewDealForm(formDirective) id="btn-cancel" class="full-width">
+                    Cancel
+                </button>
+            </span>
+        </span>
+
+    </form>
+</mat-drawer>

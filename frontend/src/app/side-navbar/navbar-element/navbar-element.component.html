@@ -1,0 +1,11 @@
+<a [ngClass]="{'disabled':isDisabled}"
+   routerLink="{{route}}"
+   routerLinkActive="active-link"
+   [routerLinkActiveOptions]="{ exact: label==='Home' }"
+   matTooltip="{{label}}"
+   [matTooltipPosition]="'right'">
+  <mat-list-item>
+    <mat-icon mat-list-icon>{{icon}}</mat-icon>
+    <h4 *ngIf="isExpanded" mat-line>{{label}}</h4>
+  </mat-list-item>
+</a>

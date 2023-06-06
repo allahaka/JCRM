@@ -26,7 +26,7 @@ def create_deal(deal: schemas.DealCreate, db: Session = Depends(get_db)) -> Any:
         raise HTTPException(HTTPStatus.CONFLICT, "Deal already exists") from exc
 
 
-@router.patch('/{deal_id:int}', response_model=schemas.Deal)
+@router.patch('/{deal_id:int}', response_model=schemas.DealUpdate)
 def update_deal(deal_id: int, deal: schemas.DealUpdate, db: Session = Depends(get_db)) -> Any:
     try:
         return crud_deal.update(db, deal_id, deal)

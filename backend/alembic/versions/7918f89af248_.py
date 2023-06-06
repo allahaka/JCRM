@@ -25,7 +25,6 @@ def upgrade() -> None:
     sa.Column('phone_number', sa.String(length=20), nullable=False),
     sa.Column('address', sa.String(length=50), nullable=False),
     sa.Column('country', sa.String(length=50), nullable=False),
-    sa.Column('last_contact', sa.Date(), nullable=False),
     sa.Column('business_field', sa.String(length=50), nullable=False),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email'),

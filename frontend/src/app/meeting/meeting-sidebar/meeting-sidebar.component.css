@@ -1,0 +1,72 @@
+.form {
+    padding: 5%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-field-padding-bottom {
+    padding-bottom: 20px;
+}
+
+.form-row {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.form-row-p {
+    align-self: center;
+}
+
+.form-count {
+    max-width: 33.33%;
+}
+
+.drawer {
+    width: 30%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.half-width {
+    width: 50%;
+}
+
+@media only screen and (max-width: 1200px) {
+    .form-row {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .form-add-time-input {
+        max-width: 50%;
+        align-self: flex-start;
+    }
+}
+
+#btn-cancel {
+  border: solid #05ACFE;
+  color: #05ACFE;
+}
+
+#btn-add {
+  color: #FFF;
+  background: #05ACFE;
+}
+
+#btn-add :hover {
+  background: #43C1FF !important;
+}

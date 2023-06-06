@@ -1,0 +1,61 @@
+<mat-drawer mode="side" opened={{isExpanded}} disableClose="true" position="end" class="mat-elevation-z8 drawer">
+    <form [formGroup]="newMeetingForm" (ngSubmit)="addMeeting(formDirective)" class="form" #formDirective="ngForm">
+        <h3>Add new Meeting</h3>
+
+        <span class="form-field">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Meeting title</mat-label>
+                <input matInput formControlName="title">
+                <mat-error *ngIf="f.title.errors && f.title.errors.required">This field is required</mat-error>
+            </mat-form-field>
+        </span>
+
+      <span class="form-field">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Meeting Description</mat-label>
+                <input matInput formControlName="description">
+                <mat-error *ngIf="f.description.errors && f.description.errors.required">This field is required</mat-error>
+            </mat-form-field>
+      </span>
+
+      <span>
+            <mat-label>Organizer *</mat-label>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-select formControlName="organizer">
+                    <mat-option *ngFor="let organizer of organizers" [value]="organizer.id">
+                        {{organizer.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </span>
+
+        <span class="form-field">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Date (YYYY-MM-DD)</mat-label>
+                <input matInput formControlName="date">
+                <mat-error *ngIf="f.date.errors && f.date.errors.required">This field is required</mat-error>
+            </mat-form-field>
+       </span>
+
+        <span>
+            <mat-label>Deal *</mat-label>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-select formControlName="deal_id">
+                    <mat-option *ngFor="let deal of deals" [value]="deal.id">
+                        {{deal.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </span>
+
+        <span class="form-field form-field-padding-bottom">
+            <span class="form-row full-width">
+                <button mat-raised-button type="submit" color="primary" id="btn-add" class="full-width">Add new Meeting</button>
+                <button mat-stroked-button type="button" (click)=closeNewMeetingForm(formDirective) id="btn-cancel" class="full-width">
+                    Cancel
+                </button>
+            </span>
+        </span>
+
+    </form>
+</mat-drawer>

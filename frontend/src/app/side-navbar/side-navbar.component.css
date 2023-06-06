@@ -1,0 +1,63 @@
+.full-height {
+  height: 100%;
+}
+
+mat-sidenav-container {
+  height: 100%;
+}
+
+mat-sidenav-container mat-sidenav mat-nav-list .chevron-button {
+  transition: 750ms;
+  transform: rotate(0deg);
+  right: 25%;
+  position: absolute;
+}
+
+mat-sidenav-container mat-sidenav mat-nav-list .chevron-button.rotated {
+  transform: rotate(180deg);
+  right: 5%;
+}
+
+.mat-list-base .mat-list-item, .mat-list-base .mat-list-option {
+  height: 36px;
+}
+
+.mat-list-item {
+  color: #676D7C;
+}
+
+.mat-list-item:first-child {
+  height: 50px;
+}
+
+h4 {
+  font-weight: 500 !important;
+  font-size: 15px !important;
+  line-height: 24px !important;
+  font-style: normal;
+}
+
+page-selected {
+  font-weight: 700 !important;
+}
+
+.logo-container {
+  height: 85px !important;
+}
+
+mat-sidenav {
+  border: 1px solid #E5EAEF;
+}
+
+mat-divider {
+  border-top-color: #E5EAEF;
+  margin: 0 20px 0 20px;
+}
+
+#hide-button {
+  position: absolute;
+  bottom: 0;
+  color: #05ACFE;
+}
+
+

@@ -1,0 +1,31 @@
+<mat-drawer mode="side" opened={{isExpanded}} disableClose="true" position="end" class="mat-elevation-z8 drawer">
+    <form [formGroup]="newNoteForm" (ngSubmit)="addNote(formDirective)" class="form" #formDirective="ngForm">
+        <h3>Add new Note</h3>
+
+        <span class="form-field">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Note title</mat-label>
+                <input matInput formControlName="title">
+                <mat-error *ngIf="f.title.errors && f.title.errors.required">This field is required</mat-error>
+            </mat-form-field>
+        </span>
+
+        <span class="form-field">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Note description</mat-label>
+                <input matInput formControlName="description">
+                <mat-error *ngIf="f.description.errors && f.description.errors.required">This field is required</mat-error>
+            </mat-form-field>
+        </span>
+
+        <span class="form-field form-field-padding-bottom">
+            <span class="form-row full-width">
+                <button mat-raised-button type="submit" color="primary" id="btn-add" class="full-width">Add new Note</button>
+                <button mat-stroked-button type="button" (click)=closeNewNoteForm(formDirective) id="btn-cancel" class="full-width">
+                    Cancel
+                </button>
+            </span>
+        </span>
+
+    </form>
+</mat-drawer>
